@@ -14,15 +14,12 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
-    @GetMapping
-    public String listarUsuarios(){
-        return "Todos os usuários cadastrados até o momento:";
-    }
-
     @PostMapping
     public void criarNovoUsuario(@RequestBody UsuarioDTO usuarioDTO){
+        if (!usuarioDTO.validarContratoDeEntrada()){
+            System.out.println("Contrato de entrada inválido");
+            return;
+        }
         usuarioService.criarNovoUsuario(usuarioDTO);
     }
-
-
 }

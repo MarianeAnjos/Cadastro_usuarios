@@ -38,6 +38,24 @@ public class UsuarioDTO {
         this.idade = idade;
     }
 
+
+    public boolean validarContratoDeEntrada(){
+        if (nome == null || nome.isEmpty()){
+            return false;
+        }
+        if(nome_usuario == null || nome_usuario.isEmpty()){
+            return false;
+        }
+        if(email == null || email.isEmpty()){
+            return false;
+        }
+        if(idade == null || idade <= 0 ){
+            return false;
+        }
+        return true;
+    }
+
+
     @Override
     public String toString() {
         return "UsuarioDTO{" +
