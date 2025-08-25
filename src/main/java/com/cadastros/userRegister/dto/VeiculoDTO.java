@@ -25,6 +25,10 @@ public class VeiculoDTO {
         return ano;
     }
 
+    public Integer getnumero(){
+        return 1;
+    }
+
     public void setAno(Integer ano) {
         this.ano = ano;
     }
