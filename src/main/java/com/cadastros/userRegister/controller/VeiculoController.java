@@ -2,10 +2,9 @@ package com.cadastros.userRegister.controller;
 
 import com.cadastros.userRegister.dto.VeiculoDTO;
 import com.cadastros.userRegister.service.VeiculoService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/veiculos")
@@ -21,5 +20,11 @@ public class VeiculoController {
             return;
         }
         veiculoService.cadastrarNovoVeiculo(veiculoDTO);
+    }
+
+    @GetMapping
+    public List<VeiculoDTO> listarVeiculos (){
+
+        return veiculoService.listarVeiculos();
     }
 }

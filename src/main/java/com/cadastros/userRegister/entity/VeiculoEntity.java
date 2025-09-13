@@ -25,4 +25,18 @@ public class VeiculoEntity {
         this.nomeDoVeiculo = nomeDoVeiculo;
     }
 
+    public VeiculoEntity() {
+    }
+
+    public String getNomeDoVeiculo() {
+        return nomeDoVeiculo;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public Integer getAno() {
+        return ano;
+    }
 }

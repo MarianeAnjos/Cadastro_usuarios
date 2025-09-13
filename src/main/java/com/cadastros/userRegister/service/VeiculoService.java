@@ -6,6 +6,9 @@ import com.cadastros.userRegister.repository.VeiculoRepository;
 import com.cadastros.userRegister.repository.VeiculoRepositoryInterface;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class VeiculoService {
     private VeiculoRepository veiculoRepository;
@@ -26,5 +29,23 @@ public class VeiculoService {
         }else {
             System.out.println("O veículo nao pode ser cadastrado");
         }
+    }
+
+    public List<VeiculoDTO> listarVeiculos(){
+        var veiculos = veiculoRepositoryInterface.findAll();
+
+        List<VeiculoDTO> veiculoDTOS = new ArrayList<>();
+
+        for(VeiculoEntity veiculo:veiculos){
+            VeiculoDTO veiculoDTO = new VeiculoDTO();
+
+            veiculoDTO.setNomeDoVeiculo(veiculo.getNomeDoVeiculo());
+            veiculoDTO.setMarca(veiculo.getMarca());
+            veiculoDTO.setAno(veiculo.getAno());
+
+            veiculoDTOS.add(veiculoDTO);
+        }
+
+        return veiculoDTOS;
     }
 }
